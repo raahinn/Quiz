@@ -18,8 +18,22 @@ form.addEventListener('submit', e => {
     });
 
     // show result on page
-    const resu = document.querySelector('span');
-    resu.textContent = `${score}%`;
+
+    //const resu = document.querySelector('span');
+    //resu.textContent = `${score}%`;
+
+    //result.querySelector('span').textContent = `${score}%`;
     result.classList.remove('d-none');
+
+    scrollTo(0, 0);
+
+    let output = 0;
+    const timer = setInterval(() => {
+        result.querySelector('span').textContent = `${output}%`;
+        if (output === score) {
+            clearInterval(timer);
+        }
+        output++;
+    }, 10)
 
 });
